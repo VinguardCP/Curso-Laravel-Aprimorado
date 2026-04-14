@@ -1,0 +1,17 @@
+@extends('layout')
+@section('title', 'Details')
+@section('conteudo')
+
+<div class="row container">
+    <div class="col s21 m6">
+        <img src="{{$produto->imagem}}" class="responsive-img">
+    </div>
+    <div class="col s21 m6">
+
+    </div>
+        <h1> {{$produto->nome}}</h1>
+        <p>{{$produto->descricao}}</p>
+        <button class="btn orange btn-large">Comprar</button>
+</div>
+
+@endsection
