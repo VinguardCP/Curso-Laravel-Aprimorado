@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
 
-Route::get('/', [SiteController::class, 'index'])->name('site.index');
+Route::get('/', [SiteController::class, 'index'])->name('index');
 
 Route::resource('produtos', ProdutoController::class);
 
-Route::get('/prduto/{slug}', [SiteController::class, 'details'])->name('site.details');
+Route::get('/produto/{slug}', [SiteController::class, 'details'])->name('details');

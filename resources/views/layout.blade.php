@@ -55,6 +55,14 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             }
+
+            .row {
+            margin-top: 20px;
+            }
+
+            img {
+            border-radius: 8px;
+            }
 </style>
 </head>
 <body>

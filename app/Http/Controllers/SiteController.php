@@ -15,7 +15,7 @@ class SiteController extends Controller
     }
 
     public function details($slug){
-        $produto = Produto::where('slug', $slug);
-        return view('site.details', compact('produto'));
+        $produto = Produto::where('slug', $slug)->first();
+        return view('details', compact('produto'));
     }
 }
