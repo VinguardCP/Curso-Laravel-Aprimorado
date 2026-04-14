@@ -11,6 +11,11 @@
             .masonry {
             column-count: 3;
             column-gap: 20px;
+            margin-top: 10px;
+            }
+            
+            .section {
+            margin-bottom: 20px;
             }
 
             .masonry-item {
@@ -62,15 +67,25 @@
 
             img {
             border-radius: 8px;
+            margin-top: 20px;
             }
 </style>
 </head>
 <body>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        @foreach ($categoriasMenu as $categoriaM)
+        <li><a href="{{route('categoria', $categoriaM->id)}}">{{$categoriaM->nome}}</a></li>
+        @endforeach
+    </ul>
+
     <nav class="red">
         <div class="nav-wrapper container">
         <a href="#" class="brand-logo center">Curso Laravel</a>
         <ul id="nav-mobile" class="left">
-            <li><a href="">Home</a></li>
+            <li><a href="{{route('index')}}">Home</a></li>
+            <li><a href="" class="dropdown-trigger" data-target='dropdown1'>Categorias <i class="material-icons right">expand_more</i></a></li>
             <li><a href="">Carrinho</a></li>
         </ul>
         </div>
@@ -78,5 +93,12 @@
 
     @yield('conteudo')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        var elemDrop = document.querySelectorAll('.dropdown-trigger');
+        var instanceDrop = M.Dropdown.init(elemDrop, {
+          coverTrigger:false,
+          constrainWidth:false 
+});
+    </script>
 </body>
 </html>

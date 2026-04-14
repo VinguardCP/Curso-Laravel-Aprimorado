@@ -28,8 +28,8 @@ class ProdutoFactory extends Factory
             'preco' => fake()->randomNumber(2),
             'slug' => Str::slug($nome),
             'imagem' => 'https://picsum.photos/400/400?random=' . rand(1, 1000),
-            'id_user' => User::factory(),
-            'id_categoria' => Categoria::factory(),
+            'id_user' => User::inRandomOrder()->first()->id,
+            'id_categoria' => Categoria::inRandomOrder()->first()->id,
         ];
     }
 }
