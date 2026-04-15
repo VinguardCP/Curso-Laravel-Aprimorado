@@ -4,9 +4,13 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Gate;
+use App\Models\Produto;
+use App\Models\User;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      */
@@ -22,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $categoriasMenu = Categoria::all();
         view()->share('categoriasMenu', $categoriasMenu);
+
+        Gate::define('ver-produto', function (User $user, Produto $produto) {
+            return $user->id == $produto->id_user;
+        });
     }
 }
