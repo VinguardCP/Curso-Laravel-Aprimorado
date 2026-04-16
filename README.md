@@ -1,3 +1,182 @@
+# NodeCommerce
+
+## Descrição
+
+O NodeCommerce é um sistema web desenvolvido com Laravel com foco em simular um e-commerce completo. O projeto permite a navegação por produtos, filtragem por categorias, visualização detalhada, gerenciamento de carrinho de compras e uma área administrativa com dashboard.
+
+O sistema foi desenvolvido com arquitetura MVC e tem como objetivo consolidar conceitos de backend, frontend e integração com banco de dados, além de explorar funcionalidades modernas do Laravel.
+
+---
+
+## Funcionalidades
+
+### Público (Usuário)
+
+- Listagem de produtos na página inicial (com paginação)
+- Filtro de produtos por categoria
+- Visualização detalhada do produto:
+  - Imagem
+  - Nome
+  - Preço
+  - Descrição
+  - Autor (quem publicou)
+  - Categoria
+- Adição de produtos ao carrinho
+- Exibição de mensagens com feedback (toast)
+- Carrinho de compras:
+  - Listagem de produtos adicionados
+  - Atualização de quantidade
+  - Remoção de itens
+  - Cálculo automático do valor total
+  - Limpeza completa do carrinho
+  - Finalização de pedido (simulação)
+
+---
+
+### Autenticação
+
+- Login e logout de usuários
+- Proteção de rotas (acesso restrito ao dashboard)
+- Controle de acesso básico (somente usuários autenticados acessam área administrativa)
+
+---
+
+### Administrativo (Dashboard)
+
+- Dashboard com métricas:
+  - Faturamento (valor fictício)
+  - Quantidade de usuários (real)
+  - Pedidos do mês (simulado)
+- Gráficos:
+  - Aquisição de usuários (comparativo anual)
+  - Distribuição de produtos por categoria (gráfico de pizza)
+- Gerenciamento de produtos:
+  - Cadastro de produtos com upload de imagem
+  - Listagem com paginação
+- Navegação administrativa:
+  - Dashboard
+  - Produtos
+  - Retorno para Home
+
+---
+
+## Tecnologias Utilizadas
+
+- PHP 8+
+- Laravel 13
+- Blade (Template Engine)
+- MySQL
+- XAMPP
+- Materialize CSS
+- JavaScript
+- Composer
+- Artisan
+
+---
+
+## Arquitetura
+
+O projeto segue o padrão MVC (Model-View-Controller):
+
+- **Models**: Representação das entidades (Produto, User, Categoria)
+- **Controllers**: Regras de negócio e manipulação de dados
+- **Views (Blade)**: Interface do usuário
+- **Routes**: Gerenciamento de rotas da aplicação
+
+Estrutura principal:
+app/
+Http/
+Models/
+Providers/
+
+database/
+migrations/
+seeders/
+factories/
+
+resources/
+views/
+
+routes/
+
+
+---
+
+## Diferenciais do Projeto
+
+- Implementação de carrinho de compras manual (sem uso de bibliotecas externas)
+- Sistema de upload de imagens integrado ao Laravel Storage
+- Uso de paginação nativa do Laravel
+- Integração com sessões para persistência do carrinho
+- Interface responsiva utilizando Materialize CSS
+- Dashboard administrativo com gráficos e métricas
+- Estrutura organizada seguindo boas práticas do MVC
+
+---
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+
+- PHP 8+
+- Composer
+- MySQL ou SQLite
+- XAMPP (ou similar)
+
+---
+
+### Passo a passo
+
+Clone o repositório:
+git clone https://github.com/seu-usuario/seu-repo.git
+Acesse a pasta:
+cd nome-do-projeto
+Instale as dependências:
+composer install
+Copie o arquivo de ambiente:
+cp .env.example .env
+Configure o banco de dados no `.env`
+Gere a chave da aplicação:
+php artisan key:generate
+Execute as migrations e seeders:
+php artisan migrate --seed
+Crie o link simbólico para imagens:
+php artisan storage:link
+Inicie o servidor:
+php artisan serve
+Acesse:
+http://127.0.0.1:8000
+
+
+---
+
+## Observações
+
+- O carrinho utiliza sessão, portanto os dados são temporários
+- O sistema de pedidos é apenas simulado (não persiste no banco)
+- Algumas funcionalidades administrativas ainda estão em desenvolvimento:
+  - Gestão de categorias
+  - Gestão de usuários
+  - Perfil do usuário
+
+---
+
+## Possíveis Melhorias Futuras
+
+- Implementação real de pedidos no banco de dados
+- Integração com gateway de pagamento
+- Sistema completo de autenticação (registro, recuperação de senha)
+- CRUD completo de categorias e usuários
+- Upload de imagens em serviços externos (AWS S3, Cloudinary)
+- Deploy em ambiente de produção
+
+---
+
+## Autor
+
+Vinicius Carmello Peliçari
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
