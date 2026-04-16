@@ -11,22 +11,24 @@ class LoginController extends Controller
     {
         $credenciais = $request->validate(
             [
-                'email' => 'required',
-                'email',
-                'password' => 'required',
+                "email" => "required",
+                "email",
+                "password" => "required",
             ],
             [
-                'email.required' => 'O campo email é obrigatório!',
-                'email.email' => 'Email não é válido!',
-                'password.required' => 'O campo senha é obrigatório!'
+                "email.required" => "O campo email é obrigatório!",
+                "email.email" => "Email não é válido!",
+                "password.required" => "O campo senha é obrigatório!",
             ]
         );
 
         if (Auth::attempt($credenciais, $request->remember)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended("/admin/dashboard");
         } else {
-            return redirect()->back()->with('erro', 'Usuário ou senha inválido');
+            return redirect()
+                ->back()
+                ->with("erro", "Usuário ou senha inválido");
         }
     }
 
@@ -35,11 +37,11 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect(route('index'));
+        return redirect(route("index"));
     }
 
     public function create()
     {
-        return view('login.create');
+        return view("login.create");
     }
 }

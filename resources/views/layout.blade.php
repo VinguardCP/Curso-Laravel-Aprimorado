@@ -99,11 +99,12 @@
             </ul>
             @auth
                 <ul id="nav-mobile" class="right">
-                <li><a href="" class="dropdown-trigger" data-target='dropdown2'>Olá {{auth()->user()->firstName}} <i class="material-icons right">expand_more</i></a> </li>
+                    <li><a href="" class="dropdown-trigger" data-target='dropdown2'>Olá
+                            {{ auth()->user()->firstName }} <i class="material-icons right">expand_more</i></a> </li>
                 </ul>
             @else
                 <ul id="nav-mobile" class="right">
-                <li><a href="{{route('login')}}">Login<i class="material-icons right">login</i></a> </li>
+                    <li><a href="{{ route('login') }}">Login<i class="material-icons right">login</i></a> </li>
                 </ul>
             @endauth
         </div>
@@ -117,6 +118,14 @@
             coverTrigger: false,
             constrainWidth: false
         });
+    </script>
+    <script>
+        @if (session('sucesso'))
+            M.toast({
+                html: '{{ session('sucesso') }}',
+                classes: 'green'
+            });
+        @endif
     </script>
 </body>
 

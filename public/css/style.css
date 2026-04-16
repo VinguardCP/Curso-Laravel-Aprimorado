@@ -57,3 +57,10 @@ body {background-color: #f5f5f5;}
 /* Pagination */
 .pagination {padding: 20px 0;}
 
+.select-wrapper input.select-dropdown {
+    text-align: left !important;
+}
+
+.modal .modal-content {
+    padding-bottom: 10px;
+}

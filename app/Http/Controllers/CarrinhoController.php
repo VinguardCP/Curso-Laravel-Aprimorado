@@ -17,16 +17,24 @@ class CarrinhoController extends Controller
     {
         $carrinho = session()->get("carrinho", []);
 
-        $id = $request->id;
+        $produto = Produto::find($request->id);
+
+        if (!$produto) {
+            return redirect()
+                ->back()
+                ->with("erro", "Produto não encontrado");
+        }
+
+        $id = $produto->id;
 
         if (isset($carrinho[$id])) {
             $carrinho[$id]["quantidade"] += $request->qnt;
         } else {
             $carrinho[$id] = [
-                "nome" => $request->name,
-                "preco" => $request->price,
+                "nome" => $produto->nome,
+                "preco" => $produto->preco,
                 "quantidade" => $request->qnt,
-                "imagem" => $request->imagem,
+                "imagem" => $produto->imagem,
             ];
         }
 
@@ -72,5 +80,16 @@ class CarrinhoController extends Controller
         return redirect()
             ->route("carrinho")
             ->with("aviso", "Carrinho limpo!");
+    }
+
+    public function finalizar()
+    {
+        // Aqui futuramente salvaria no banco (pedido)
+
+        session()->forget("carrinho");
+
+        return redirect()
+            ->route("carrinho")
+            ->with("sucesso", "Pedido finalizado com sucesso!");
     }
 }

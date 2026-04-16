@@ -23,13 +23,13 @@ class ProdutoFactory extends Factory
     {
         $nome = fake()->sentence();
         return [
-            'nome' => $nome,
-            'descricao' => fake()->paragraph(),
-            'preco' => fake()->randomNumber(2),
-            'slug' => Str::slug($nome),
-            'imagem' => 'https://picsum.photos/400/400?random=' . rand(1, 1000),
-            'id_user' => User::inRandomOrder()->first()->id,
-            'id_categoria' => Categoria::inRandomOrder()->first()->id,
+            "nome" => $nome,
+            "descricao" => fake()->paragraph(),
+            "preco" => fake()->randomNumber(2),
+            "slug" => Str::slug($nome),
+            "imagem" => "https://picsum.photos/400/400?random=" . rand(1, 1000),
+            "id_user" => User::inRandomOrder()->first()->id,
+            "id_categoria" => Categoria::inRandomOrder()->first()->id,
         ];
     }
 }

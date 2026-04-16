@@ -56,7 +56,8 @@
 
                         <tr>
                             <td>
-                                <img src="{{ $item['imagem'] }}" width="70" class="responsive-img circle">
+                                <img src="{{ asset('storage/' . $item['imagem']) }}" width="70"
+                                    class="responsive-img circle">
                             </td>
 
                             <td>{{ $item['nome'] }}</td>
@@ -98,7 +99,12 @@
         <div class="row container center">
             <a href="{{ route('index') }}" class="btn blue">Continuar Comprando</a>
             <a href="{{ route('limparcarrinho') }}" class="btn red">Limpar Carrinho</a>
-            <button class="btn green">Finalizar Pedido</button>
+            <form action="{{ route('finalizarpedido') }}" method="POST" style="display:inline;">
+                @csrf
+                <button class="btn green">
+                    Finalizar Pedido
+                </button>
+            </form>
         </div>
 
     </div>
